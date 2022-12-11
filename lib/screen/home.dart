@@ -3,6 +3,7 @@ import 'package:calculator/bloc/calculator_event.dart';
 import 'package:calculator/bloc/calculator_stste.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
@@ -22,9 +23,9 @@ class Home extends StatelessWidget {
               return Text(state.message.toString());
             }
             if (state is CalculatorResultSuccessful) {
-              return Text(state.result.toString());
+              return Text("Result: ${state.result.toString()}");
             }
-            return const Text("Result");
+            return const Text("Result: ");
           }),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -58,7 +59,6 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               MaterialButton(
-                  child: const Icon(Icons.add),
                   color: Theme.of(context).primaryColorLight,
                   onPressed: () {
                     BlocProvider.of<CalculatorBloc>(context).add(
@@ -67,9 +67,9 @@ class Home extends StatelessWidget {
                                 int.parse(firstOperandController.text),
                             secondOperand:
                                 int.parse(secondOperandController.text)));
-                  }),
+                  },
+                  child: const Icon(FontAwesomeIcons.plus)),
               MaterialButton(
-                  child: const Icon(Icons.remove),
                   color: Theme.of(context).primaryColorLight,
                   onPressed: () {
                     BlocProvider.of<CalculatorBloc>(context).add(
@@ -78,9 +78,9 @@ class Home extends StatelessWidget {
                                 int.parse(firstOperandController.text),
                             secondOperand:
                                 int.parse(secondOperandController.text)));
-                  }),
+                  },
+                  child: const Icon(FontAwesomeIcons.minus)),
               MaterialButton(
-                  child: const Icon(Icons.clear),
                   color: Theme.of(context).primaryColorLight,
                   onPressed: () {
                     BlocProvider.of<CalculatorBloc>(context).add(
@@ -89,9 +89,9 @@ class Home extends StatelessWidget {
                                 int.parse(firstOperandController.text),
                             secondOperand:
                                 int.parse(secondOperandController.text)));
-                  }),
+                  },
+                  child: const Icon(FontAwesomeIcons.xmark)),
               MaterialButton(
-                  child: const Icon(Icons.arrow_back_ios_rounded),
                   color: Theme.of(context).primaryColorLight,
                   onPressed: () {
                     BlocProvider.of<CalculatorBloc>(context).add(
@@ -100,7 +100,8 @@ class Home extends StatelessWidget {
                                 int.parse(firstOperandController.text),
                             secondOperand:
                                 int.parse(secondOperandController.text)));
-                  }),
+                  },
+                  child: const Icon(FontAwesomeIcons.divide)),
             ],
           )
         ],
