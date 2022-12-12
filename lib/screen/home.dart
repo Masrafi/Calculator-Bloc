@@ -59,49 +59,59 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               MaterialButton(
-                  color: Theme.of(context).primaryColorLight,
-                  onPressed: () {
-                    BlocProvider.of<CalculatorBloc>(context).add(
-                        AddButtonTapped(
-                            firstOperand:
-                                int.parse(firstOperandController.text),
-                            secondOperand:
-                                int.parse(secondOperandController.text)));
-                  },
-                  child: const Icon(FontAwesomeIcons.plus)),
+                color: Theme.of(context).primaryColorLight,
+                onPressed: () {
+                  BlocProvider.of<CalculatorBloc>(context).add(
+                    AddButtonTapped(
+                      firstOperand: int.parse(firstOperandController.text),
+                      secondOperand: int.parse(secondOperandController.text),
+                    ),
+                  );
+                },
+                child: const Icon(
+                  FontAwesomeIcons.plus,
+                ),
+              ),
               MaterialButton(
-                  color: Theme.of(context).primaryColorLight,
-                  onPressed: () {
-                    BlocProvider.of<CalculatorBloc>(context).add(
-                        SubTractButtonTapped(
-                            firstOperand:
-                                int.parse(firstOperandController.text),
-                            secondOperand:
-                                int.parse(secondOperandController.text)));
-                  },
-                  child: const Icon(FontAwesomeIcons.minus)),
+                color: Theme.of(context).primaryColorLight,
+                onPressed: () {
+                  BlocProvider.of<CalculatorBloc>(context).add(
+                    SubTractButtonTapped(
+                      firstOperand: int.parse(firstOperandController.text),
+                      secondOperand: int.parse(secondOperandController.text),
+                    ),
+                  );
+                },
+                child: const Icon(
+                  FontAwesomeIcons.minus,
+                ),
+              ),
               MaterialButton(
-                  color: Theme.of(context).primaryColorLight,
-                  onPressed: () {
-                    BlocProvider.of<CalculatorBloc>(context).add(
-                        MultiplyButtonTapped(
-                            firstOperand:
-                                int.parse(firstOperandController.text),
-                            secondOperand:
-                                int.parse(secondOperandController.text)));
-                  },
-                  child: const Icon(FontAwesomeIcons.xmark)),
+                color: Theme.of(context).primaryColorLight,
+                onPressed: () {
+                  BlocProvider.of<CalculatorBloc>(context).add(
+                      MultiplyButtonTapped(
+                          firstOperand: int.parse(firstOperandController.text),
+                          secondOperand:
+                              int.parse(secondOperandController.text)));
+                },
+                child: const Icon(
+                  FontAwesomeIcons.xmark,
+                ),
+              ),
               MaterialButton(
-                  color: Theme.of(context).primaryColorLight,
-                  onPressed: () {
-                    BlocProvider.of<CalculatorBloc>(context).add(
-                        DivideButtonTapped(
-                            firstOperand:
-                                int.parse(firstOperandController.text),
-                            secondOperand:
-                                int.parse(secondOperandController.text)));
-                  },
-                  child: const Icon(FontAwesomeIcons.divide)),
+                color: Theme.of(context).primaryColorLight,
+                onPressed: () {
+                  BlocProvider.of<CalculatorBloc>(context).add(
+                      DivideButtonTapped(
+                          firstOperand: int.parse(firstOperandController.text),
+                          secondOperand:
+                              int.parse(secondOperandController.text)));
+                },
+                child: const Icon(
+                  FontAwesomeIcons.divide,
+                ),
+              ),
             ],
           )
         ],

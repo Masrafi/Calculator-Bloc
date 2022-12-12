@@ -7,11 +7,7 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
   final CalculatorRepo calculatorRepo;
   CalculatorBloc({required this.calculatorRepo})
       : super(const CalculatorInitial(result: "Result")) {
-    on<AddButtonTapped>((event, emit) {
-      final sum = calculatorRepo.sum(
-          operand1: event.firstOperand, operand2: event.secondOperand);
-      emit(CalculatorResultSuccessful(result: sum.toDouble()));
-    });
+    on<AddButtonTapped>(_addButtonPressToStae);
 
     on<SubTractButtonTapped>((event, emit) {
       final difference = calculatorRepo.difference(
@@ -30,5 +26,14 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
           operand1: event.firstOperand, operand2: event.secondOperand);
       emit(CalculatorResultSuccessful(result: division.toDouble()));
     });
+  }
+
+  Future<void> _addButtonPressToStae(
+    AddButtonTapped event,
+    Emitter<CalculatorState> emit,
+  ) async {
+    final sum = calculatorRepo.sum(
+        operand1: event.firstOperand, operand2: event.secondOperand);
+    emit(CalculatorResultSuccessful(result: sum.toDouble()));
   }
 }
